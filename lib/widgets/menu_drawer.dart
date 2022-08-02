@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/screens/Careers.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
@@ -18,9 +19,14 @@ class MenuDrawer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Careers()),
+                  );
+                },
                 child: Text(
-                  'Login',
+                  'About Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -34,7 +40,7 @@ class MenuDrawer extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: Text(
-                  'Sign Up',
+                  'Games',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -48,7 +54,26 @@ class MenuDrawer extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: Text(
-                  'Read',
+                  'Life At Last Bite',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey.shade400,
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Careers()),
+                  );
+                },
+                child: Text(
+                  'Careers',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -62,7 +87,7 @@ class MenuDrawer extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: Text(
-                  'Contact Us',
+                  'Contact',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -70,7 +95,7 @@ class MenuDrawer extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2021 | DBestech',
+                    'Copyright © 2022 | Last Bite',
                     style: TextStyle(
                       color: Colors.blueGrey.shade300,
                       fontSize: 14,

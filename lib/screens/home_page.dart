@@ -1,3 +1,11 @@
+import 'package:flutter_web/widgets/Container1.dart';
+import 'package:flutter_web/widgets/Container2.dart';
+import 'package:flutter_web/widgets/Container3.dart';
+import 'package:flutter_web/widgets/Container4.dart';
+import 'package:flutter_web/widgets/Container5.dart';
+import 'package:flutter_web/widgets/Container6.dart';
+import 'package:flutter_web/widgets/Container7.dart';
+import 'package:flutter_web/widgets/Footer.dart';
 import 'package:flutter_web/widgets/bottom_bar.dart';
 import 'package:flutter_web/widgets/carousel.dart';
 import 'package:flutter_web/widgets/featured_heading.dart';
@@ -38,26 +46,63 @@ class _HomePageState extends State<HomePage> {
         : 1;
 
     return Scaffold(
-      body: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  child: SizedBox(
-                    height: screenSize.height * 0.65,
-                    width: screenSize.width,
-                    child: Image.asset(
-                      'assets/images/background.png',
-                      fit: BoxFit.cover,
-                    ),
+      extendBody: true,
+      appBar: screenSize.width <800? AppBar(
+        iconTheme: IconThemeData(color: Colors.blue),
+        elevation: 0,
+        backgroundColor: Colors.white.withOpacity(_opacity),
+        title: Text(
+          'Last Bite',
+          style: TextStyle(
+            color: Color(0xFF077bd7),
+            fontSize: 26,
+            fontFamily: 'Raleway',
+            fontWeight: FontWeight.w900,
+            letterSpacing: 3,
+          ),
+        ),
+      ):PreferredSize(
+        preferredSize: Size(screenSize.width, 70),
+        child: TopBarContents(_opacity),
+      ),
+      drawer: MenuDrawer(),
+      body: SingleChildScrollView(
+        controller: _scrollController,
+        child: Column(
+            children: [
+              Container(
+                child: SizedBox(
+                  height: screenSize.height * 0.65,
+                  width: screenSize.width,
+                  child: Image.asset(
+                    'assets/images/background.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
+              ),
+              Column(
+                children: [
+                  //FloatingQuickAccessBar(screenSize: screenSize),
+                   //FeaturedHeading(screenSize: screenSize,),
+                  // MainHeading(screenSize: screenSize),
+                  // MainCarousel(),
+                  Container1(screenSize: screenSize),
+                  FeaturedTiles(screenSize: screenSize),
+                  Container2(screenSize: screenSize),
+                   //Container3(screenSize: screenSize),
+                  //Container4(screenSize: screenSize),
+                  Container5(screenSize: screenSize),
+                  Container6(screenSize: screenSize),
+                  //Container7(screenSize: screenSize),
 
-              ],
-            ),
+                  Footer(),
 
-          ],
-        ),
+                ],
+              ),
+
+            ],
+          ),
+      ),
 
     );
   }

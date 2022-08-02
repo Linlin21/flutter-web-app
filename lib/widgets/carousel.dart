@@ -65,6 +65,7 @@ class _MainCarouselState extends State<MainCarousel> {
               autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
+                  debugPrint(index.toString());
                   _current = index;
                   for (int i = 0; i < imageSliders.length; i++) {
                     if (i == index) {
